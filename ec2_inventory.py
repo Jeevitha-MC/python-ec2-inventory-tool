@@ -43,6 +43,7 @@ def get_all_instances(response):
             )
     return ec2_instances
 
+
 all_instances = get_all_instances(response)
 print("EC2 Inventory")
 print(f"Total Instances: {len(all_instances)}")
@@ -51,3 +52,31 @@ print("-" * 40)
 for ec2_instance in all_instances:
     print(f"Instance ID: {ec2_instance['InstanceId']}, Instance Type: {ec2_instance['InstanceType']}, State: {ec2_instance['State']}")
     print ()
+
+
+#Function to count number of instances running and stopped
+def get_instance_summary(all_instances):
+    total = len(all_instances)
+    running = 0
+    stopped = 0
+
+    for instance in all_instances:
+        if instance["State"] == "running":
+            running += 1
+        elif instance["State"] == "stopped":
+            stopped += 1
+
+    return {
+        "Total": total,
+        "Running": running,
+        "Stopped": stopped
+    }
+
+summary = get_instance_summary(all_instances)
+print("EC2 Inventory Summary")
+print("-" * 40)
+print(f"Total Instances   : {summary['Total']}")
+print(f"Running Instances : {summary['Running']}")
+print(f"Stopped Instances : {summary['Stopped']}")
+print("-" * 40)
+print()
