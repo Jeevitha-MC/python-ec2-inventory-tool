@@ -4,10 +4,12 @@ A Python-based Infrastructure Automation project that simulates retrieving EC2 i
 
 ## Features
 
-- List running EC2 instances
-- Display Instance ID and Instance Type
-- Parse nested AWS API responses
-- Demonstrates Python automation concepts used in Infrastructure Engineering
+- Retrieve EC2 inventory from a sample AWS `describe_instances()` response
+- List all EC2 instances
+- Display Instance ID, Instance Type, and State
+- Display total number of EC2 instances
+- Parse nested AWS API responses using Python
+- Modular Python functions for infrastructure automation
 
 ## Technologies Used
 

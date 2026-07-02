@@ -26,3 +26,28 @@ print("-" * 40)
 for ec2_instance in running_instances:
     print(f"Instance ID: {ec2_instance['InstanceId']}, Instance Type: {ec2_instance['InstanceType']}")
     print ()
+
+
+def get_all_instances(response):
+    #Store all instances in a list
+    ec2_instances = []
+
+    #Loop through all reservations
+    for reservation in response["Reservations"]:
+        #Loop through all instances in reservation
+        for instance in reservation["Instances"]:
+            ec2_instances.append(
+                {"InstanceId" : instance["InstanceId"],
+                "InstanceType" : instance["InstanceType"],
+                "State" : instance["State"]["Name"]}
+            )
+    return ec2_instances
+
+all_instances = get_all_instances(response)
+print("EC2 Inventory")
+print(f"Total Instances: {len(all_instances)}")
+print("-" * 40)
+
+for ec2_instance in all_instances:
+    print(f"Instance ID: {ec2_instance['InstanceId']}, Instance Type: {ec2_instance['InstanceType']}, State: {ec2_instance['State']}")
+    print ()
