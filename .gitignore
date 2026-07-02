@@ -1,0 +1,5 @@
+#This prevents unnecessary files from being committed.
+__pycache__/
+*.pyc
+.venv/
+.env
