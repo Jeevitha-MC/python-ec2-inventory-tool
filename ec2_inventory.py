@@ -80,3 +80,21 @@ print(f"Running Instances : {summary['Running']}")
 print(f"Stopped Instances : {summary['Stopped']}")
 print("-" * 40)
 print()
+
+#Filter Instances by Type
+def get_instances_by_type(all_instances, instance_type):
+    filtered_instances = []
+    for instance in all_instances:
+        if instance["InstanceType"] == instance_type:
+            filtered_instances.append(instance)#if instance matched the requested type, append the existing dictionary
+    return filtered_instances
+
+micro_instances = get_instances_by_type(all_instances, "t3.micro")
+print(f"Total Micro Instances: {len(micro_instances)}")
+print("-" * 40)
+
+for instance in micro_instances:
+    print(f"Instance ID  : {instance['InstanceId']}")
+    print(f"Type         : {instance['InstanceType']}")
+    print(f"State        : {instance['State']}")
+    print()
