@@ -1,4 +1,5 @@
 #Import response variable from sample_data.py
+import csv
 from sample_data import response
 
 def get_running_instances(response):
@@ -123,3 +124,15 @@ running_instances = get_instances_by_state(all_instances, "running")
 stopped_instances = get_instances_by_state(all_instances, "stopped")
 print_inventory(running_instances, "Running EC2 Instances")
 print_inventory(stopped_instances, "Stopped EC2 Instances")
+
+#------------------------------------------------------
+#Export Inventory to CSV
+def export_inventory_to_csv(instances, filename):
+    with open(filename, "w", newline="") as file:
+        writer = csv.writer(file) #writes csv rows to the file
+        writer.writerow(["InstanceID", "InstanceType", "State"]) #It's a list, each item becomes a seperate column
+        for instance in instances:
+            writer.writerow([instance["InstanceId"], instance["InstanceType"], instance["State"]]) #Each list item becomes one CSV column
+
+export_inventory_to_csv(all_instances, "ec2_inventory.csv")
+print("EC2 Inventory exported to ec2_inventory.csv")
