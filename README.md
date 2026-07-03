@@ -14,6 +14,7 @@ A Python-based Infrastructure Automation project that simulates retrieving EC2 i
 - Refactor inventory printing into reusable function
 - Filter Instances by State(Refactoring)
 - Export Inventory to CSV
+- Sorting Instances
 - Built using modular Python functions
 
 
