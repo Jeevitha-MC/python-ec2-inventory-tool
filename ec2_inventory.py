@@ -110,3 +110,16 @@ print_inventory(all_instances, "EC2 Inventory")
 print_inventory(micro_instances, "Micro EC2 Instances")
 print()
 
+#------------------------------------------------------
+
+#Filter Instances by State(Refactoring)
+def get_instances_by_state(all_instances, state):
+    filtered_instances = []
+    for instance in all_instances:
+        if instance["State"] == state:
+            filtered_instances.append(instance)
+    return filtered_instances
+running_instances = get_instances_by_state(all_instances, "running")
+stopped_instances = get_instances_by_state(all_instances, "stopped")
+print_inventory(running_instances, "Running EC2 Instances")
+print_inventory(stopped_instances, "Stopped EC2 Instances")
