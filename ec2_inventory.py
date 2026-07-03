@@ -136,3 +136,13 @@ def export_inventory_to_csv(instances, filename):
 
 export_inventory_to_csv(all_instances, "ec2_inventory.csv")
 print("EC2 Inventory exported to ec2_inventory.csv")
+
+#------------------------------------------------------
+#Sorting Instances
+def sort_instances(all_instances, key):
+    return sorted(all_instances, key=lambda x: x[key]) #sorting whatever the caller gives as key, in this case InstanceType
+
+sorted_by_type = sort_instances(all_instances, "InstanceType")
+sorted_by_state = sort_instances(all_instances, "State")
+print_inventory(sorted_by_type, "EC2 Inventory Sorted by Instance Type")
+print_inventory(sorted_by_state, "EC2 Inventory Sorted by State")
