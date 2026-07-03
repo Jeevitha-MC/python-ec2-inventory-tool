@@ -14,19 +14,18 @@ def get_running_instances(response):
                     {
                         "InstanceId": instance["InstanceId"],
                         "InstanceType": instance["InstanceType"]
+                        
                     }
 
                 )
     return ec2_instances
-
 running_instances = get_running_instances(response)
 print("Running EC2 Instances:", len(running_instances))
 print("-" * 40)
-
 for ec2_instance in running_instances:
     print(f"Instance ID: {ec2_instance['InstanceId']}, Instance Type: {ec2_instance['InstanceType']}")
     print ()
-
+#-------------------------------------------------------------------------
 
 def get_all_instances(response):
     #Store all instances in a list
@@ -42,17 +41,14 @@ def get_all_instances(response):
                 "State" : instance["State"]["Name"]}
             )
     return ec2_instances
-
-
 all_instances = get_all_instances(response)
 print("EC2 Inventory")
 print(f"Total Instances: {len(all_instances)}")
 print("-" * 40)
-
 for ec2_instance in all_instances:
     print(f"Instance ID: {ec2_instance['InstanceId']}, Instance Type: {ec2_instance['InstanceType']}, State: {ec2_instance['State']}")
     print ()
-
+#------------------------------------------------------------------------------
 
 #Function to count number of instances running and stopped
 def get_instance_summary(all_instances):
@@ -71,7 +67,6 @@ def get_instance_summary(all_instances):
         "Running": running,
         "Stopped": stopped
     }
-
 summary = get_instance_summary(all_instances)
 print("EC2 Inventory Summary")
 print("-" * 40)
@@ -80,6 +75,7 @@ print(f"Running Instances : {summary['Running']}")
 print(f"Stopped Instances : {summary['Stopped']}")
 print("-" * 40)
 print()
+#-------------------------------------------------------------------------
 
 #Filter Instances by Type
 def get_instances_by_type(all_instances, instance_type):
@@ -92,9 +88,25 @@ def get_instances_by_type(all_instances, instance_type):
 micro_instances = get_instances_by_type(all_instances, "t3.micro")
 print(f"Total Micro Instances: {len(micro_instances)}")
 print("-" * 40)
-
 for instance in micro_instances:
     print(f"Instance ID  : {instance['InstanceId']}")
     print(f"Type         : {instance['InstanceType']}")
     print(f"State        : {instance['State']}")
     print()
+
+#----------------------------------------------
+#Refactor the code to print the inventory in a more structured way
+def print_inventory(instances, title):
+    print(title)
+    print("-" * 40)
+    for instance in instances:
+        print(f"Instance ID  : {instance['InstanceId']}")
+        print(f"Type         : {instance['InstanceType']}")
+        print(f"State        : {instance['State']}")
+        print()
+    
+print_inventory(all_instances, "EC2 Inventory")
+#print_inventory(running_instances, "Running EC2 Instances")
+print_inventory(micro_instances, "Micro EC2 Instances")
+print()
+

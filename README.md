@@ -11,7 +11,9 @@ A Python-based Infrastructure Automation project that simulates retrieving EC2 i
   - Total Instances
   - Running Instances
   - Stopped Instances
+- Refactor inventory printing into reusable function
 - Built using modular Python functions
+
 
 ## Technologies Used
 
