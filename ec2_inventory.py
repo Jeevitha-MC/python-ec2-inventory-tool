@@ -7,6 +7,8 @@ ec2 = boto3.client("ec2")
 
 response = ec2.describe_instances()
 
+print(response["Reservations"][0]["Instances"][0]["Tags"])
+
 print(type(response))
 print(response.keys())
 
@@ -26,10 +28,12 @@ def get_all_instances(response):
                 {"Name" : name,
                 "InstanceId" : instance["InstanceId"],
                 "InstanceType" : instance["InstanceType"],
-                "State" : instance["State"]["Name"]}
+                "State" : instance["State"]["Name"],
+                "Tags": instance.get("Tags", [])}
             )
     return ec2_instances
 all_instances = get_all_instances(response)
+print(all_instances[0])
 print("EC2 Inventory")
 print(f"Total Instances: {len(all_instances)}")
 print("-" * 40)
@@ -138,3 +142,20 @@ sorted_by_type = sort_instances(all_instances, "InstanceType")
 sorted_by_state = sort_instances(all_instances, "State")
 print_inventory(sorted_by_type, "EC2 Inventory Sorted by Instance Type")
 print_inventory(sorted_by_state, "EC2 Inventory Sorted by State")
+
+#------------------------------------------------------
+#Filter Instances by Tag
+def get_instances_by_tag(all_instances, tag_key, tag_value):
+    filtered_instances = []
+    for instance in all_instances:
+        for tag in instance.get("Tags", []):
+            if tag["Key"] == tag_key and tag["Value"] == tag_value:
+                filtered_instances.append(instance)
+                break #Break the inner loop if a matching tag is found
+    return filtered_instances
+
+
+prod_instances = get_instances_by_tag(all_instances, "Environment", "Production")
+print_inventory(prod_instances, "Production EC2 Instances")
+
+
