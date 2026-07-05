@@ -1,5 +1,2 @@
 InstanceID,InstanceType,State
-i-111,t3.micro,running
-i-222,t3.small,stopped
-i-333,t3.large,running
-i-444,t3.medium,running
+i-03b13afb504032cf0,t3.micro,running

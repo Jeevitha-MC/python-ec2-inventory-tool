@@ -4,18 +4,13 @@ A Python-based Infrastructure Automation project that simulates retrieving EC2 i
 
 ## Features
 
-- Parse AWS EC2 `describe_instances()` response (using sample data)
-- Display complete EC2 inventory
-- Display Instance ID, Instance Type, and State
-- Generate an EC2 inventory summary
-  - Total Instances
-  - Running Instances
-  - Stopped Instances
-- Refactor inventory printing into reusable function
-- Filter Instances by State(Refactoring)
-- Export Inventory to CSV
-- Sorting Instances
-- Built using modular Python functions
+✅ Live EC2 inventory using boto3
+✅ Filter by instance state
+✅ Filter by instance type
+✅ Inventory summary
+✅ Sorting
+✅ CSV export
+✅ Display EC2 Name tags
 
 
 ## Technologies Used
