@@ -4,37 +4,68 @@ A Python-based Infrastructure Automation project that simulates retrieving EC2 i
 
 ## Features
 
-✅ Live EC2 inventory using boto3
-✅ Filter by instance state
+✅ Connect to AWS using boto3
+✅ Retrieve live EC2 inventory
+✅ Display instance Name, ID, Type, and State
+✅ Filter by state
 ✅ Filter by instance type
-✅ Inventory summary
-✅ Sorting
-✅ CSV export
-✅ Display EC2 Name tags
+✅ Filter by AWS tags
+✅ Sort inventory
+✅ Export inventory to CSV
+✅ Display inventory summary
 
 
 ## Technologies Used
 
 - Python 3
-- Dictionaries
-- Lists
-- Functions
-- Loops
-- AWS EC2 API response structure (sample data)
+- AWS EC2
+- boto3
+- AWS CLI
+- CSV Module
 
 ## Project Structure
 
 ```
 EC2_Inventory_Tool/
 ├── ec2_inventory.py
-├── sample_data.py
+├── ec2_inventory.csv
 └── README.md
 ```
 
-## Future Enhancements
+## Prerequisites
+```
+Before running the project, ensure you have:
 
-- List all EC2 instances
-- Count running and stopped instances
-- Export inventory to CSV
-- Integrate with boto3
-- Accept AWS Region as input
+Python 3 installed
+AWS CLI configured
+boto3 installed
+IAM user with permissions to describe EC2 instances
+
+Install boto3:
+
+pip install boto3
+
+Verify AWS credentials:
+
+aws configure
+
+```
+
+## How to Run
+
+Clone the repository:
+
+git clone https://github.com/Jeevitha-MC/python-ec2-inventory-tool.git
+cd python-ec2-inventory-tool
+
+Run the application:
+
+python ec2_inventory.py
+
+## Author
+
+Jeevitha MC
+
+Aspiring Infrastructure Engineer with experience in Linux, AWS, Python, Terraform, Docker, and Kubernetes.
+
+GitHub: https://github.com/Jeevitha-MC
