@@ -1,18 +1,23 @@
 # EC2 Inventory Tool
 
-A Python-based Infrastructure Automation project that simulates retrieving EC2 instance information from the AWS EC2 `describe_instances()` API response.
+A Python-based Infrastructure Automation tool that connects to AWS using boto3 to retrieve live EC2 inventory, filter resources, generate summaries, and export reports.
+This project demonstrates practical Infrastructure Engineering skills by interacting with AWS APIs, processing cloud resources, and automating inventory management.
+## Architecture
+
+<img width="1536" height="1024" alt="EC2_Inventory_Tool" src="https://github.com/user-attachments/assets/aa6fb05d-17a4-4a81-a98c-9e572b237355" />
 
 ## Features
 
-✅ Connect to AWS using boto3
-✅ Retrieve live EC2 inventory
-✅ Display instance Name, ID, Type, and State
-✅ Filter by state
-✅ Filter by instance type
-✅ Filter by AWS tags
-✅ Sort inventory
-✅ Export inventory to CSV
-✅ Display inventory summary
+• Retrieve live EC2 inventory using AWS SDK (boto3)
+• Display EC2 Name, Instance ID, Instance Type, and State
+• Generate an inventory summary
+• Filter instances by:
+	• State
+	• Instance Type
+	• AWS Tags
+• Sort EC2 instances
+• Export inventory to CSV
+Handle instances without Name tags gracefully
 
 
 ## Technologies Used
@@ -65,6 +70,19 @@ cd python-ec2-inventory-tool
 Run the application:
 
 python ec2_inventory.py
+
+## What I Learned
+
+This project helped me gain practical experience with:
+
+AWS EC2 APIs using boto3
+Infrastructure automation with Python
+Working with nested JSON responses
+Processing lists and dictionaries
+Building reusable Python functions
+Tag-based resource filtering
+CSV report generation
+AWS CLI configuration and authentication
 
 ## Author
 
