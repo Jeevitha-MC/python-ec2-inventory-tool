@@ -7,18 +7,18 @@ This project demonstrates practical Infrastructure Engineering skills by interac
 <img width="1536" height="1024" alt="EC2_Inventory_Tool" src="https://github.com/user-attachments/assets/aa6fb05d-17a4-4a81-a98c-9e572b237355" />
 
 ## Features
-
-• Retrieve live EC2 inventory using AWS SDK (boto3)
-• Display EC2 Name, Instance ID, Instance Type, and State
-• Generate an inventory summary
-• Filter instances by:
+```
+Retrieve live EC2 inventory using AWS SDK (boto3)
+Display EC2 Name, Instance ID, Instance Type, and State
+Generate an inventory summary
+Filter instances by:
 	• State
 	• Instance Type
 	• AWS Tags
-• Sort EC2 instances
-• Export inventory to CSV
+Sort EC2 instances
+Export inventory to CSV
 Handle instances without Name tags gracefully
-
+```
 
 ## Technologies Used
 
@@ -37,8 +37,7 @@ EC2_Inventory_Tool/
 ├── ec2_inventory.csv 
 ├── README.md 
 ├── requirements.txt 
-└── docs/ 
-    └── ec2_inventory_tool_architecture.png
+
 ```
 
 ## Prerequisites
