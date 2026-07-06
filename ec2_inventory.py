@@ -1,16 +1,23 @@
 #Import response variable from sample_data.py
 import boto3
 import csv
+import argparse
 
 #Create an EC2 client
 ec2 = boto3.client("ec2")
 
 response = ec2.describe_instances()
 
-print(response["Reservations"][0]["Instances"][0]["Tags"])
+#print(response["Reservations"][0]["Instances"][0]["Tags"])
 
 print(type(response))
 print(response.keys())
+
+parser = argparse.ArgumentParser(description="EC2 Inventory Tool")
+parser.add_argument(
+    "--state",
+    help="Filter instances by state (running/stopped)"
+)
 
 def get_all_instances(response):
     #Store all instances in a list

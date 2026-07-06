@@ -31,10 +31,14 @@ Handle instances without Name tags gracefully
 ## Project Structure
 
 ```
-EC2_Inventory_Tool/
+EC2_Inventory_Tool/ 
+│
 ├── ec2_inventory.py
-├── ec2_inventory.csv
-└── README.md
+├── ec2_inventory.csv 
+├── README.md 
+├── requirements.txt 
+└── docs/ 
+    └── ec2_inventory_tool_architecture.png
 ```
 
 ## Prerequisites
